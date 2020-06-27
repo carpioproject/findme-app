@@ -6,13 +6,12 @@ void main() {
   // to work with. The WidgetTester allows you to build and interact
   // with widgets in the test environment.
   testWidgets('MyWidget has a title and message', (WidgetTester tester) async {
-    // await tester.pumpWidget(MyWidget(title: 'T', message: 'M'));
+    await tester.pumpWidget(MyWidget(title: 'T', message: 'M'));
 
-    // final titleFinder = find.text('T');
-    // final messageFinder = find.text('M');
+    final titleFinder = find.text('T');
+    final messageFinder = find.text('M');
 
-    // expect(titleFinder, findsOneWidget);
-    // expect(messageFinder, findsOneWidget);
-    expect(true, true);
+    expect(titleFinder, findsOneWidget);
+    expect(messageFinder, findsOneWidget);
   });
 }
