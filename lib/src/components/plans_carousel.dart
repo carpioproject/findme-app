@@ -75,9 +75,9 @@ class PlansCarousel extends StatelessWidget {
         child: ListTile(
           title: Text(record.name),
           onTap: () => Firestore.instance.runTransaction((transaction) async {
-            final freshSnapshot = await transaction.get(record.reference);
+            // final freshSnapshot = await transaction.get(record.reference);
 
-            final fresh = Plan.fromSnapshot(freshSnapshot);
+            // final fresh = Plan.fromSnapshot(freshSnapshot);
 
             // await transaction
             //     .update(record.reference, {'votes': fresh.votes + 1});
