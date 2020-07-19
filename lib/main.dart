@@ -1,12 +1,23 @@
+import 'package:findme/app/app.dart';
 import 'package:flutter/material.dart';
-import 'package:findme/src/routes/routes.dart';
+import 'package:provider/provider.dart';
+import 'package:findme/app/preferences/user_preferences.dart';
+import 'package:findme/app/services/auth/firebase_authenticator.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Baby Names', initialRoute: '/', routes: getApplicationRoutes());
-  }
+  final preferences = UserPreferences();
+
+  await preferences.initPreferences();
+
+  runApp(MultiProvider(providers: [
+    Provider(
+      create: (_) => FirebaseAuthenticator(),
+    ),
+    StreamProvider(
+      create: (context) =>
+          context.read<FirebaseAuthenticator>().onAuthStateChanged,
+    ),
+  ], child: MyApp()));
 }
