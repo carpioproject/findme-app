@@ -1,8 +1,8 @@
-import 'package:findme/ui/views/home_page.dart';
-import 'package:findme/ui/views/land_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:findme/app/routes/routes.dart';
+import 'package:findme/ui/views/home_view.dart';
+import 'package:findme/ui/views/land_view.dart';
 import 'package:findme/app/models/user_model.dart';
 
 class MyApp extends StatelessWidget {
@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
         routes: getApplicationRoutes(),
         home: Consumer<User>(builder: (_, user, __) {
           if (user == null) {
-            return LandPage();
+            return LandView();
           }
 
-          return HomePage();
+          return HomeView();
         }));
   }
 }
