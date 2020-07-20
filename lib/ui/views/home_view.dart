@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:findme/app/services/auth/firebase_authenticator.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key key}) : super(key: key);
+class HomeView extends StatelessWidget {
+  const HomeView({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -4,10 +4,6 @@ import 'package:findme/app/models/user_model.dart';
 class FirebaseAuthenticator {
   final FirebaseAuth firebaseAuth;
 
-  Future<FirebaseUser> providerSignIn() {
-    throw UnimplementedError();
-  }
-
   FirebaseAuthenticator({FirebaseAuth firebaseAuth})
       : firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
 
@@ -21,6 +17,10 @@ class FirebaseAuthenticator {
       displayName: user.displayName,
       photoUrl: user.photoUrl,
     );
+  }
+
+  Future<FirebaseUser> providerSignIn() {
+    throw UnimplementedError();
   }
 
   Stream<User> get onAuthStateChanged {
