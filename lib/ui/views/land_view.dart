@@ -121,11 +121,7 @@ class LandView extends StatelessWidget {
                     color: Colors.white,
                   ),
                   providerName: 'Facebook',
-                  onPressed: () => {
-                    () {
-                      print('Loggin in facebook');
-                    }
-                  },
+                  onPressed: () => {print('Loggin in facebook')},
                 ),
                 ButtonComponent(
                   borderColor: Colors.white,
@@ -136,10 +132,8 @@ class LandView extends StatelessWidget {
                     color: Colors.white,
                   ),
                   providerName: 'Email',
-                  onPressed: () => {
-                    () {
-                      print('Loggin in email');
-                    }
+                  onPressed: () {
+                    print('Loggin in email');
                   },
                 )
               ],
