@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Baby Names',
+        title: 'Findme app',
         routes: getApplicationRoutes(),
         home: Consumer<User>(builder: (_, user, __) {
           if (user == null) {
