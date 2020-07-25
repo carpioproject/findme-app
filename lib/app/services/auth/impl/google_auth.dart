@@ -10,7 +10,7 @@ class GoogleAuthenticator extends FirebaseAuthenticator {
         super(firebaseAuth: firebaseAuth);
 
   @override
-  Future<FirebaseUser> providerSignIn() async {
+  Future<void> providerSignIn() async {
     // if (await _googleSignIn.isSignedIn()) {
     //   return await super.firebaseAuth.currentUser();
     // }
@@ -21,9 +21,7 @@ class GoogleAuthenticator extends FirebaseAuthenticator {
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
     );
-    final authResult =
-        await super.firebaseAuth.signInWithCredential(credential);
 
-    return authResult.user;
+    await super.firebaseAuth.signInWithCredential(credential);
   }
 }

@@ -19,16 +19,12 @@ class FirebaseAuthenticator {
     );
   }
 
-  Future<FirebaseUser> providerSignIn() {
+  Future<void> providerSignIn() {
     throw UnimplementedError();
   }
 
   Stream<User> get onAuthStateChanged {
     return firebaseAuth.onAuthStateChanged.map(userFromFirebase);
-  }
-
-  Future<User> signInWithProvider() async {
-    return userFromFirebase(await providerSignIn());
   }
 
   Future<void> signOut() async {
