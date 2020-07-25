@@ -10,16 +10,14 @@ class FacebookAuthenticator extends FirebaseAuthenticator {
         super(firebaseAuth: firebaseAuth);
 
   @override
-  Future<FirebaseUser> providerSignIn() async {
+  Future<void> providerSignIn() async {
     // if (await _googleSignIn.isSignedIn()) {
     //   return await super.firebaseAuth.currentUser();
     // }
     final facebookLogin = await _facebookAuth.login();
     final AuthCredential credential = FacebookAuthProvider.getCredential(
         accessToken: facebookLogin.accessToken.token);
-    final authResult =
-        await super.firebaseAuth.signInWithCredential(credential);
 
-    return authResult.user;
+    await super.firebaseAuth.signInWithCredential(credential);
   }
 }

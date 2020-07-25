@@ -1,3 +1,4 @@
+import 'package:findme/app/services/auth/impl/phone_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -137,9 +138,10 @@ class LandView extends StatelessWidget {
                     Icons.mail_outline,
                     color: Colors.white,
                   ),
-                  providerName: 'Email',
+                  providerName: 'Phone',
                   onPressed: () {
-                    print('Loggin in email');
+                    PhoneAuthenticator(context: context).providerSignIn();
+                    print('Loggin in phone');
                   },
                 )
               ],
