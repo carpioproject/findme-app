@@ -2,10 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:findme/app/services/auth/firebase_authenticator.dart';
 
-class GoogleAuth extends FirebaseAuthenticator {
+class GoogleAuthenticator extends FirebaseAuthenticator {
   GoogleSignIn _googleSignIn;
 
-  GoogleAuth({FirebaseAuth firebaseAuth, GoogleSignIn googleSignIn})
+  GoogleAuthenticator({FirebaseAuth firebaseAuth, GoogleSignIn googleSignIn})
       : _googleSignIn = googleSignIn ?? GoogleSignIn(),
         super(firebaseAuth: firebaseAuth);
 

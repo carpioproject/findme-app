@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:findme/app/services/auth/impl/google_auth.dart';
+import 'package:findme/app/services/auth/impl/facebook_auth.dart';
+
 import 'package:findme/ui/components/auth/button_component.dart';
 
 class LandView extends StatelessWidget {
@@ -108,7 +111,7 @@ class LandView extends StatelessWidget {
                   icon: Icon(FontAwesomeIcons.google),
                   providerName: 'Google',
                   onPressed: () {
-                    GoogleAuth().providerSignIn();
+                    GoogleAuthenticator().providerSignIn();
                     print('Loggin in google');
                   },
                 ),
@@ -121,7 +124,10 @@ class LandView extends StatelessWidget {
                     color: Colors.white,
                   ),
                   providerName: 'Facebook',
-                  onPressed: () => {print('Loggin in facebook')},
+                  onPressed: () {
+                    FacebookAuthenticator().providerSignIn();
+                    print('Loggin in facebook');
+                  },
                 ),
                 ButtonComponent(
                   borderColor: Colors.white,
