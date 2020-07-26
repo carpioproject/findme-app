@@ -103,48 +103,50 @@ class LandView extends StatelessWidget {
                 BoxConstraints.expand(width: double.infinity, height: 500),
           ),
           Container(
-            child: Column(
-              children: <Widget>[
-                SizedBox(height: 20),
-                ButtonComponent(
-                  borderColor: Colors.black,
-                  backgroundColor: Colors.white,
-                  icon: Icon(FontAwesomeIcons.google),
-                  providerName: 'Google',
-                  onPressed: () {
-                    GoogleAuthenticator().providerSignIn();
-                    print('Loggin in google');
-                  },
-                ),
-                ButtonComponent(
-                  borderColor: Colors.white,
-                  backgroundColor: Color.fromRGBO(59, 89, 152, 1),
-                  textColor: Colors.white,
-                  icon: Icon(
-                    FontAwesomeIcons.facebookSquare,
-                    color: Colors.white,
+            child: Expanded(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: 20),
+                  ButtonComponent(
+                    borderColor: Colors.black,
+                    backgroundColor: Colors.white,
+                    icon: Icon(FontAwesomeIcons.google),
+                    providerName: 'Google',
+                    onPressed: () {
+                      GoogleAuthenticator().providerSignIn();
+                      print('Loggin in google');
+                    },
                   ),
-                  providerName: 'Facebook',
-                  onPressed: () {
-                    FacebookAuthenticator().providerSignIn();
-                    print('Loggin in facebook');
-                  },
-                ),
-                ButtonComponent(
-                  borderColor: Colors.white,
-                  backgroundColor: Color.fromRGBO(219, 68, 55, 1),
-                  textColor: Colors.white,
-                  icon: Icon(
-                    Icons.mail_outline,
-                    color: Colors.white,
+                  ButtonComponent(
+                    borderColor: Colors.white,
+                    backgroundColor: Color.fromRGBO(59, 89, 152, 1),
+                    textColor: Colors.white,
+                    icon: Icon(
+                      FontAwesomeIcons.facebookSquare,
+                      color: Colors.white,
+                    ),
+                    providerName: 'Facebook',
+                    onPressed: () {
+                      FacebookAuthenticator().providerSignIn();
+                      print('Loggin in facebook');
+                    },
                   ),
-                  providerName: 'Phone',
-                  onPressed: () {
-                    PhoneAuthenticator(context: context).providerSignIn();
-                    print('Loggin in phone');
-                  },
-                )
-              ],
+                  ButtonComponent(
+                    borderColor: Colors.white,
+                    backgroundColor: Color.fromRGBO(219, 68, 55, 1),
+                    textColor: Colors.white,
+                    icon: Icon(
+                      Icons.mail_outline,
+                      color: Colors.white,
+                    ),
+                    providerName: 'Phone',
+                    onPressed: () {
+                      PhoneAuthenticator(context: context).providerSignIn();
+                      print('Loggin in phone');
+                    },
+                  )
+                ],
+              ),
             ),
           )
         ],
