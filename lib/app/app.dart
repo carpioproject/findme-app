@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
         routes: getApplicationRoutes(),
         home: Consumer<User>(builder: (_, user, __) {
           if (user == null) {
+            UserService.logout();
             return LandView();
           }
 

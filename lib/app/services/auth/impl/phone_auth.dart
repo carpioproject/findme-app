@@ -11,7 +11,7 @@ class PhoneAuthenticator extends FirebaseAuthenticator {
         super(firebaseAuth: firebaseAuth);
 
   @override
-  Future<void> providerSignIn() {
+  void providerSignIn() {
     //Call to the phone number modal
     ModalComponent(
             title: 'Sign in with Phone Number',

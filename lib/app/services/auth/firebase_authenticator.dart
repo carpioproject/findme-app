@@ -19,7 +19,7 @@ class FirebaseAuthenticator {
     );
   }
 
-  Future<void> providerSignIn() {
+  void providerSignIn() {
     throw UnimplementedError();
   }
 

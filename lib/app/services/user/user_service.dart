@@ -27,4 +27,8 @@ class UserService {
       await _dbRef.document(uid).setData(_user.toJson());
     }
   }
+
+  static logout() {
+    _instance = null;
+  }
 }
