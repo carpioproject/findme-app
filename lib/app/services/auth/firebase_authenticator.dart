@@ -27,7 +27,7 @@ class FirebaseAuthenticator {
     return firebaseAuth.onAuthStateChanged.map(userFromFirebase);
   }
 
-  Future<void> signOut() async {
+  Future<void> signOut() {
     return firebaseAuth.signOut();
   }
 
