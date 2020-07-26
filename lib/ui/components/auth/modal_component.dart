@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
 
 class ModalComponent {
-  final Widget _child;
-  final String _title;
-  final BuildContext _context;
+  static ModalComponent instance;
+  Widget _child;
+  String _title;
+  BuildContext _context;
 
-  const ModalComponent(
-      {Key key, Widget child, String title, BuildContext context})
-      : _child = child,
-        _title = title,
-        _context = context;
+  ModalComponent._internal(
+      {Key key, Widget child, String title, BuildContext context}) {
+    _child = child;
+    _title = title;
+    _context = context;
+  }
+
+  factory ModalComponent(
+      {Key key, Widget child, String title, BuildContext context}) {
+    instance =
+        ModalComponent._internal(child: child, title: title, context: context);
+
+    return instance;
+  }
 
   showModal() {
     showDialog(
@@ -23,5 +33,9 @@ class ModalComponent {
                 child: _child,
               ));
         });
+  }
+
+  closeModal() {
+    Navigator.pop(_context);
   }
 }
