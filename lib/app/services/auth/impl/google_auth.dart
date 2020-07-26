@@ -10,7 +10,7 @@ class GoogleAuthenticator extends FirebaseAuthenticator {
         super(firebaseAuth: firebaseAuth);
 
   @override
-  Future<void> providerSignIn() async {
+  void providerSignIn() async {
     // if (await _googleSignIn.isSignedIn()) {
     //   return await super.firebaseAuth.currentUser();
     // }
