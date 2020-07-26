@@ -9,15 +9,31 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('FindMe app'),
+        centerTitle: false,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.settings),
+            tooltip: 'Settings',
+            onPressed: () {
+              Navigator.pushNamed(context, '/settings');
+            },
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => {Navigator.pushNamed(context, '/plan')},
-        child: Icon(Icons.add),
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
       ),
-      body: SafeArea(child: _buildBody(context)),
+      body: SafeArea(child: _buildFutureBuilder(context)),
     );
   }
 
-  Widget _buildBody(BuildContext context) {
+  Widget _buildFutureBuilder(BuildContext context) {
     return FutureBuilder(
       future: context.select((FirebaseAuthenticator firebaseAuthenticator) =>
           firebaseAuthenticator.currentUser()),
@@ -29,23 +45,36 @@ class HomeView extends StatelessWidget {
           );
         }
 
-        User user = snapshot.data;
-        return RaisedButton(
-          onPressed: () {
-            context.read<FirebaseAuthenticator>().signOut();
-          },
-          child: Text('Hello ${user.displayName}'),
-        );
+        return _buildBody(user: snapshot.data, context: context);
       },
     );
-    // return Column(children: <Widget>[
-    //   Text('Hola mundo'),
-    //   RaisedButton(
-    //     onPressed: () {
-    //       context.read<FirebaseAuthenticator>().signOut();
-    //     },
-    //     child: Text('Log out'),
-    //   )
-    // ]);
+  }
+
+  Widget _buildBody({User user, BuildContext context}) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 20.0),
+      child: Row(
+        textBaseline: TextBaseline.alphabetic,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.baseline,
+        children: <Widget>[
+          Text(
+            'Your plans coming',
+            style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
+          ),
+          GestureDetector(
+            onTap: () => print('See all'),
+            child: Text(
+              'See all',
+              style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 1.0),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:findme/app/services/user/user_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:findme/app/routes/routes.dart';
@@ -10,11 +11,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Findme app',
+        theme: ThemeData(
+            primaryColor: Color.fromRGBO(0, 170, 155, 1),
+            accentColor: Color.fromRGBO(251, 188, 5, 1)),
         routes: getApplicationRoutes(),
         home: Consumer<User>(builder: (_, user, __) {
           if (user == null) {
             return LandView();
           }
+
+          UserService(user: user);
 
           return HomeView();
         }));
