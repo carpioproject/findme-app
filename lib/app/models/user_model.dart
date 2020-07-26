@@ -2,7 +2,7 @@ import 'package:meta/meta.dart';
 
 @immutable
 class User {
-  const User({
+  User({
     @required this.uid,
     this.email,
     this.photoUrl,
@@ -13,4 +13,10 @@ class User {
   final String email;
   final String photoUrl;
   final String displayName;
+
+  toJson() => {
+        'email': this.email,
+        'photoUrl': this.photoUrl,
+        'displayName': this.displayName
+      };
 }
