@@ -54,11 +54,11 @@ class PhoneAuthenticator extends FirebaseAuthenticator {
               }
             },
             onSaved: (String value) async {
-              Navigator.pop(_context);
               AuthCredential credential = PhoneAuthProvider.getCredential(
                   verificationId: verificationId, smsCode: value);
 
               await super.firebaseAuth.signInWithCredential(credential);
+              ModalComponent.instance.closeModal();
             },
             decoration: InputDecoration(hintText: 'Phone Number with prefix'),
           ),
@@ -99,7 +99,7 @@ class PhoneAuthenticator extends FirebaseAuthenticator {
               }
             },
             onSaved: (String value) {
-              Navigator.pop(_context);
+              ModalComponent.instance.closeModal();
               verifyPhoneNumber(phoneNumber: value);
             },
             decoration: InputDecoration(hintText: 'Phone Number with prefix'),
